@@ -9,7 +9,7 @@
             v-for="item in classlist" :key=item.class_id
             class="weui-cells weui-cells_after-title">
                 <div
-                v-if="item.type==1" 
+                v-if="item.type==0"
                 class="weui-cell weui-cell_access" hover-class="weui-cell_active"
                 @click="classin(item.class_id)">
                 <div class="weui-cell__bd">{{item.class_name}}</div>
@@ -21,10 +21,10 @@
                 </div>
             </div>
         </div>
-        <div>
+        <!-- <div>
             <h2>1.{{name}}</h2>
             <h2>2.{{id}}</h2>
-        </div>
+        </div> -->
         <!--底部导航条-->
         <tabbar></tabbar>
     </div>

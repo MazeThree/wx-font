@@ -12,7 +12,7 @@
         </div>
         <div class="weui-tab__panel">
           <div class="weui-tab__content" :hidden="activeIndex != 0">
-            <div class="weui-cells__title">已加入班级</div>
+            <div class="weui-cells__title">该班级未考试题</div>
             <div 
             v-for="item in paperlist1" :key=item.paper_id
             class="weui-cells weui-cells_after-title">
@@ -28,7 +28,7 @@
             </div>
           </div>
           <div class="weui-tab__content" :hidden="activeIndex != 1">
-            <div class="weui-cells__title">已加入班级</div>
+            <div class="weui-cells__title">已考试题</div>
             <div 
             v-for="item in paperlist2" :key=item.paper_id
             class="weui-cells weui-cells_after-title">
@@ -76,9 +76,9 @@
                 <div class="weui-cell__bd">
                   加入方式
                   </div>
-                <div v-if="classinfo.class_type==1" class="weui-cell__ft">允许任何人加入</div>
-                <div v-else-if="classinfo.class_type==1" class="weui-cell__ft">申请后加入</div>
-                <div v-else class="weui-cell__ft">不允许加入</div>
+                <div v-if="classinfo.class_join==0" class="weui-cell__ft">允许任何人加入</div>
+                <div v-else-if="classinfo.class_join==1" class="weui-cell__ft">申请后加入</div>
+                <div v-else class="weui-cell__ft">需邀请后加入</div>
                 </div>
             </div>
             <div class="weui-cells weui-cells_after-title">
@@ -128,6 +128,7 @@ export default {
             class_id:_this.$store.getters.class_id,
           }
           getclasslist(userid).then(data =>{
+            console.log(data)
             this.paperlist=data;
           });
           getclasslist(classid).then(data =>{
@@ -136,13 +137,16 @@ export default {
           finish(fin).then(data =>{
               //对比该学生在该班级下已经参与过的考试，将返回的所有试卷信息
               //分别存入已考和未考分组
-              var arr=new Array;
-              arr.push
+              // var arr=new Array;
+              // arr.push
+              console.log('111')
               for(let i=0;i<this.paperlist.length;i++){
                 //console.log(data.indexOf(this.paperlist[i].paper_id));
                 if(data.indexOf(this.paperlist[i].paper_id)){
+                  console.log('sss')
                   this.paperlist1.push(this.paperlist[i]);
                 }else{
+                  console.log('222')
                   this.paperlist2.push(this.paperlist[i])}
               }
           });
@@ -155,6 +159,20 @@ export default {
       tabClick(e) {
       console.log(e);
       this.activeIndex = e.currentTarget.id;
+      },
+      handle(){
+        var _this=this;
+        wx.showModal({
+        content: '确定要退出班级吗？',
+        confirmText: "确定",
+        cancelText: "不了",
+        success: function (res) {
+          if (res.confirm) {
+            var url="/pages/home/main";
+            wx.redirectTo({url});   
+          } 
+        }
+      });
     }
   },
   computed: {
@@ -178,7 +196,7 @@ export default {
     this.paperlist1=[];
     this.paperlist2=[];
     this.paperlist=[];
-      this.getclass();
+    this.getclass();
   }
 }
 </script>

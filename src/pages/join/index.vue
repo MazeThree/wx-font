@@ -11,13 +11,18 @@
         </div>
         </div>
         <div class="page__bd">
-            <h2>
-            班级名称:{{class_info.class_name}}
-            </h2>
+            <div class="weui-cell">
+            <div class="weui-cell__hd">
+                班级名称:
+                </div>
+            <div class="weui-cell__bd">
+                {{class_info.class_name}}
+                </div>
+            </div>
             <div class="weui-cell">
             <div class="weui-cell__hd">
                 班级id：
-            </div>
+                </div>
             <div class="weui-cell__bd">
                 {{class_info.class_id}}
                 </div>
@@ -34,14 +39,14 @@
             <div class="weui-cell__hd">
                 加入方式：
             </div>
-            <div v-if="class_info.class_join==1" class="weui-cell__bd">
+            <div v-if="class_info.class_join==0" class="weui-cell__bd">
                 任何人可加入
                 </div>
-                <div v-else-if="class_info.class_join==2" class="weui-cell__bd">
+                <div v-else-if="class_info.class_join==1" class="weui-cell__bd">
                 申请通过后加入
                 </div>
                 <div v-else class="weui-cell__bd">
-                不可加入
+                需邀请加入
                 </div>
             </div>
             <div class="weui-cell">
@@ -53,7 +58,7 @@
                 </div>
             </div>
             <div class="weui-btn-area">
-                <button class="weui-btn weui-btn_primary"
+                <button class="primary" style="background-color:skyblue;"
                 id="showTooltips" @click="join(class_info.class_join)" :disabled="flag">申请加入</button>
             </div>
         </div> 

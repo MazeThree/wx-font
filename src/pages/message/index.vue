@@ -6,9 +6,7 @@
         </div>
         <div class="weui-msg__text-area">
             <h2 class="weui-msg__title">测评完成</h2>
-            <p class="weui-msg__desc">此次成绩：</p>
-            <p class="weui-msg__desc">正确率：</p>
-            <p class="weui-msg__desc">得分：</p>
+            <p class="weui-msg__desc">此次成绩：85分</p>
         </div>
         <div class="weui-msg__opr-area">
             <p class="weui-btn-area">

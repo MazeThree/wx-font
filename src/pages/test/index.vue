@@ -160,6 +160,7 @@ export default {
                   });
               }
               var que={
+                  usename:_this.$store.getname,
                   useid:_this.$store.getters.getid,
                   test_id:_this.question[0].test_id,
                   class_id:_this.$store.getters.class_id,
@@ -168,7 +169,6 @@ export default {
              getscore(que).then(data =>{
                   var url="/pages/message/main";
                   wx.redirectTo({url});
-              
           });
           } 
         }

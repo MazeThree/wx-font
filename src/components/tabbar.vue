@@ -1,7 +1,7 @@
 <template>
 <div class="foot-box">
     <div class="flex-items">
-        <a href="" class="active">
+        <a href="/pages/home/main" class="active">
             <span style="display:inline-block;position:relative;">
                 <img class="weui-tabbar__icon" src="../images/icon_tabbar.png" alt="">
             </span>
@@ -10,21 +10,21 @@
         </a>
     </div>
     <div class="flex-items">
-        <a href="" class="active">
+        <a href="/pages/testmsg/main" class="active">
             <span style="display:inline-block;position:relative;">
-                <img class="weui-tabbar__icon" src="../images/icon_tabbar.png" alt="">
+                <img class="weui-tabbar__icon" src="../images/icon_nav_search.png" alt="">
             </span>
             <br>
-            <span>首页</span>
+            <span>考试记录</span>
         </a>
     </div>
     <div class="flex-items">
-        <a href="" class="active">
+        <a href="/pages/mine/main" class="active">
             <span style="display:inline-block;position:relative;">
-                <img class="weui-tabbar__icon" src="../images/icon_tabbar.png" alt="">
+                <img class="weui-tabbar__icon" src="../images/icon_nav_article.png" alt="">
             </span>
             <br>
-            <span>首页</span>
+            <span>我的</span>
         </a>
     </div>
 </div>
